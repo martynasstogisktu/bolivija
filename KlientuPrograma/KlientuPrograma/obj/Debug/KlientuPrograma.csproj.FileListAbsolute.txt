@@ -1,0 +1,9 @@
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.exe.config
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.exe
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.pdb
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csprojAssemblyReference.cache
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.Properties.Resources.resources
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.GenerateResource.cache
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.CoreCompileInputs.cache
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.exe
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.pdb
