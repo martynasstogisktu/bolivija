@@ -14,7 +14,7 @@ namespace KlientuPrograma
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); // ....
         }
     }
 }
