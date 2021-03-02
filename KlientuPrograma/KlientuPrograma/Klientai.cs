@@ -10,14 +10,21 @@ namespace KlientuPrograma
     {
         string vardas;
         string pavarde;
+        string vardString; //vardadieniai eilutes formatus
         DateTime gimtadienis;
-        List<String> vardadieniai;
+        List<string> vardadieniai;
         string pastabos;
-        public Klientai (string vardas, string pavarde, DateTime gimtadienis)
+        public Klientai (string vardas, string pavarde, DateTime gimtadienis, 
+            string vardadieniai, string pastabos)
         {
+            this.vardadieniai = new List<string>();
             this.vardas = vardas;
             this.pavarde = pavarde;
+            this.vardString = vardadieniai;
             this.gimtadienis = gimtadienis;
+            this.pastabos = pastabos;
+            foreach (string vard in vardadieniai.Split(';'))
+                this.vardadieniai.Add(vard);
         }
         public string GetVardas()
         {
@@ -26,6 +33,10 @@ namespace KlientuPrograma
         public string GetPavarde()
         {
             return pavarde;
+        }
+        public string GetVardString()
+        {
+            return vardString;
         }
         public DateTime GetGimtadienis()
         {

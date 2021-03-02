@@ -48,8 +48,16 @@ namespace KlientuPrograma
             this.gimimo_data = new System.Windows.Forms.TextBox();
             this.pastabos = new System.Windows.Forms.TextBox();
             this.prideti_klienta = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CVardas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPavarde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CGim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVardadienis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPastabos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pilka_spalva.SuspendLayout();
             this.rezultatai.SuspendLayout();
+            this.sarasas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pilka_spalva
@@ -161,7 +169,7 @@ namespace KlientuPrograma
             this.isjungti.BackColor = System.Drawing.Color.Transparent;
             this.isjungti.BackgroundImage = global::KlientuPrograma.Properties.Resources.Vector;
             this.isjungti.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.isjungti.Location = new System.Drawing.Point(717, 10);
+            this.isjungti.Location = new System.Drawing.Point(940, 11);
             this.isjungti.Margin = new System.Windows.Forms.Padding(2);
             this.isjungti.Name = "isjungti";
             this.isjungti.Size = new System.Drawing.Size(34, 34);
@@ -178,19 +186,20 @@ namespace KlientuPrograma
             this.rezultatai.Margin = new System.Windows.Forms.Padding(2);
             this.rezultatai.Name = "rezultatai";
             this.rezultatai.SelectedIndex = 0;
-            this.rezultatai.Size = new System.Drawing.Size(500, 382);
+            this.rezultatai.Size = new System.Drawing.Size(746, 382);
             this.rezultatai.TabIndex = 3;
             // 
             // sarasas
             // 
             this.sarasas.AutoScroll = true;
             this.sarasas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.sarasas.Controls.Add(this.dataGridView1);
             this.sarasas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.sarasas.Location = new System.Drawing.Point(4, 24);
             this.sarasas.Margin = new System.Windows.Forms.Padding(2);
             this.sarasas.Name = "sarasas";
             this.sarasas.Padding = new System.Windows.Forms.Padding(2);
-            this.sarasas.Size = new System.Drawing.Size(492, 354);
+            this.sarasas.Size = new System.Drawing.Size(738, 354);
             this.sarasas.TabIndex = 0;
             this.sarasas.Text = "Sąrašas";
             // 
@@ -211,7 +220,7 @@ namespace KlientuPrograma
             this.data.AutoSize = true;
             this.data.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.data.ForeColor = System.Drawing.Color.White;
-            this.data.Location = new System.Drawing.Point(577, 31);
+            this.data.Location = new System.Drawing.Point(807, 28);
             this.data.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(109, 17);
@@ -279,12 +288,62 @@ namespace KlientuPrograma
             this.prideti_klienta.TabIndex = 12;
             this.prideti_klienta.Text = "Pridėti klientą";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CVardas,
+            this.CPavarde,
+            this.CGim,
+            this.CVardadienis,
+            this.CPastabos});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(742, 354);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // CVardas
+            // 
+            this.CVardas.HeaderText = "Vardas";
+            this.CVardas.Name = "CVardas";
+            this.CVardas.ReadOnly = true;
+            this.CVardas.Width = 140;
+            // 
+            // CPavarde
+            // 
+            this.CPavarde.HeaderText = "Pavardė";
+            this.CPavarde.Name = "CPavarde";
+            this.CPavarde.ReadOnly = true;
+            this.CPavarde.Width = 140;
+            // 
+            // CGim
+            // 
+            this.CGim.HeaderText = "Gimtadienis";
+            this.CGim.Name = "CGim";
+            this.CGim.ReadOnly = true;
+            this.CGim.Width = 120;
+            // 
+            // CVardadienis
+            // 
+            this.CVardadienis.HeaderText = "Vardadienio datos";
+            this.CVardadienis.Name = "CVardadienis";
+            this.CVardadienis.ReadOnly = true;
+            this.CVardadienis.Width = 140;
+            // 
+            // CPastabos
+            // 
+            this.CPastabos.HeaderText = "Pastabos";
+            this.CPastabos.Name = "CPastabos";
+            this.CPastabos.ReadOnly = true;
+            this.CPastabos.Width = 140;
+            // 
             // Langas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(762, 520);
+            this.ClientSize = new System.Drawing.Size(1004, 520);
             this.Controls.Add(this.vardas);
             this.Controls.Add(this.prideti_klienta);
             this.Controls.Add(this.pastabos);
@@ -304,6 +363,8 @@ namespace KlientuPrograma
             this.pilka_spalva.ResumeLayout(false);
             this.pilka_spalva.PerformLayout();
             this.rezultatai.ResumeLayout(false);
+            this.sarasas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,6 +390,12 @@ namespace KlientuPrograma
         private System.Windows.Forms.TextBox gimimo_data;
         private System.Windows.Forms.TextBox pastabos;
         private System.Windows.Forms.Label prideti_klienta;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CVardas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPavarde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CGim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CVardadienis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPastabos;
     }
 }
 
