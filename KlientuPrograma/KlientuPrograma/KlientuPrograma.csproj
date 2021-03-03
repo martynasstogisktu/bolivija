@@ -55,6 +55,8 @@
     <Compile Include="Klientai.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VardadieniaiList.cs" />
+    <Compile Include="Vardadienis.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="vardadieniuDatos.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
