@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace KlientuPrograma
 {
@@ -14,10 +15,13 @@ namespace KlientuPrograma
     {
         string vard, pav, past;
         double dat;
+        string CFd = "../../Klientai.csv";
+        private List<Klientai> KlientuSarasas;
         
         public Langas()
         {
             InitializeComponent(); // ....
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -54,7 +58,26 @@ namespace KlientuPrograma
 
         private void klientai_Click(object sender, EventArgs e)
         {
-
+            KlientuSarasas = new List<Klientai>();
+            using (StreamReader reader = new StreamReader(CFd, Encoding.UTF8))
+            {
+                string line = reader.ReadLine();
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    string vardas = parts[0];
+                    string pavarde = parts[1];
+                    DateTime gimtadienis = DateTime.Parse(parts[2]);
+                    string vardadieniai = parts[3];
+                    string pastabos = parts[4];
+                    Klientai K = new Klientai(vardas, pavarde, gimtadienis, 
+                        vardadieniai, pastabos);
+                    KlientuSarasas.Add(K);
+                    dataGridView1.Rows.Add(K.GetVardas(), K.GetPavarde(),
+                        K.GetGimtadienis().ToShortDateString(), 
+                        K.GetVardString(),K.GetPastabos());
+                }
+            }
         }
 
         private void vardadieniai_Click(object sender, EventArgs e)
