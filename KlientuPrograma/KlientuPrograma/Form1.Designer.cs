@@ -41,6 +41,12 @@ namespace KlientuPrograma
             this.isjungti = new System.Windows.Forms.Button();
             this.rezultatai = new System.Windows.Forms.TabControl();
             this.sarasas = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CVardas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPavarde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CGim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVardadienis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPastabos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.svenciantys = new System.Windows.Forms.TabPage();
             this.data = new System.Windows.Forms.Label();
             this.vardas = new System.Windows.Forms.TextBox();
@@ -48,16 +54,12 @@ namespace KlientuPrograma
             this.gimimo_data = new System.Windows.Forms.TextBox();
             this.pastabos = new System.Windows.Forms.TextBox();
             this.prideti_klienta = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CVardas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPavarde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CGim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CVardadienis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPastabos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.svenciantysTextBox = new System.Windows.Forms.RichTextBox();
             this.pilka_spalva.SuspendLayout();
             this.rezultatai.SuspendLayout();
             this.sarasas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.svenciantys.SuspendLayout();
             this.SuspendLayout();
             // 
             // pilka_spalva
@@ -203,15 +205,66 @@ namespace KlientuPrograma
             this.sarasas.TabIndex = 0;
             this.sarasas.Text = "Sąrašas";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CVardas,
+            this.CPavarde,
+            this.CGim,
+            this.CVardadienis,
+            this.CPastabos});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(742, 354);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // CVardas
+            // 
+            this.CVardas.HeaderText = "Vardas";
+            this.CVardas.Name = "CVardas";
+            this.CVardas.ReadOnly = true;
+            this.CVardas.Width = 140;
+            // 
+            // CPavarde
+            // 
+            this.CPavarde.HeaderText = "Pavardė";
+            this.CPavarde.Name = "CPavarde";
+            this.CPavarde.ReadOnly = true;
+            this.CPavarde.Width = 140;
+            // 
+            // CGim
+            // 
+            this.CGim.HeaderText = "Gimtadienis";
+            this.CGim.Name = "CGim";
+            this.CGim.ReadOnly = true;
+            this.CGim.Width = 120;
+            // 
+            // CVardadienis
+            // 
+            this.CVardadienis.HeaderText = "Vardadienio datos";
+            this.CVardadienis.Name = "CVardadienis";
+            this.CVardadienis.ReadOnly = true;
+            this.CVardadienis.Width = 140;
+            // 
+            // CPastabos
+            // 
+            this.CPastabos.HeaderText = "Pastabos";
+            this.CPastabos.Name = "CPastabos";
+            this.CPastabos.ReadOnly = true;
+            this.CPastabos.Width = 140;
+            // 
             // svenciantys
             // 
             this.svenciantys.AutoScroll = true;
             this.svenciantys.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.svenciantys.Controls.Add(this.svenciantysTextBox);
             this.svenciantys.Location = new System.Drawing.Point(4, 24);
             this.svenciantys.Margin = new System.Windows.Forms.Padding(2);
             this.svenciantys.Name = "svenciantys";
             this.svenciantys.Padding = new System.Windows.Forms.Padding(2);
-            this.svenciantys.Size = new System.Drawing.Size(492, 354);
+            this.svenciantys.Size = new System.Drawing.Size(738, 354);
             this.svenciantys.TabIndex = 1;
             this.svenciantys.Text = "Švenčiantys klientai";
             // 
@@ -288,55 +341,13 @@ namespace KlientuPrograma
             this.prideti_klienta.TabIndex = 12;
             this.prideti_klienta.Text = "Pridėti klientą";
             // 
-            // dataGridView1
+            // svenciantysTextBox
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CVardas,
-            this.CPavarde,
-            this.CGim,
-            this.CVardadienis,
-            this.CPastabos});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(742, 354);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // CVardas
-            // 
-            this.CVardas.HeaderText = "Vardas";
-            this.CVardas.Name = "CVardas";
-            this.CVardas.ReadOnly = true;
-            this.CVardas.Width = 140;
-            // 
-            // CPavarde
-            // 
-            this.CPavarde.HeaderText = "Pavardė";
-            this.CPavarde.Name = "CPavarde";
-            this.CPavarde.ReadOnly = true;
-            this.CPavarde.Width = 140;
-            // 
-            // CGim
-            // 
-            this.CGim.HeaderText = "Gimtadienis";
-            this.CGim.Name = "CGim";
-            this.CGim.ReadOnly = true;
-            this.CGim.Width = 120;
-            // 
-            // CVardadienis
-            // 
-            this.CVardadienis.HeaderText = "Vardadienio datos";
-            this.CVardadienis.Name = "CVardadienis";
-            this.CVardadienis.ReadOnly = true;
-            this.CVardadienis.Width = 140;
-            // 
-            // CPastabos
-            // 
-            this.CPastabos.HeaderText = "Pastabos";
-            this.CPastabos.Name = "CPastabos";
-            this.CPastabos.ReadOnly = true;
-            this.CPastabos.Width = 140;
+            this.svenciantysTextBox.Location = new System.Drawing.Point(-4, 0);
+            this.svenciantysTextBox.Name = "svenciantysTextBox";
+            this.svenciantysTextBox.Size = new System.Drawing.Size(720, 357);
+            this.svenciantysTextBox.TabIndex = 0;
+            this.svenciantysTextBox.Text = "";
             // 
             // Langas
             // 
@@ -365,6 +376,7 @@ namespace KlientuPrograma
             this.rezultatai.ResumeLayout(false);
             this.sarasas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.svenciantys.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,6 +408,7 @@ namespace KlientuPrograma
         private System.Windows.Forms.DataGridViewTextBoxColumn CGim;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVardadienis;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPastabos;
+        private System.Windows.Forms.RichTextBox svenciantysTextBox;
     }
 }
 
