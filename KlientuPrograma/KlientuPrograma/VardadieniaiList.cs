@@ -21,13 +21,12 @@ namespace KlientuPrograma
                     line = reader.ReadLine();
                     string[] parts = line.Split(';');
                     string[] date = parts[0].Split('-');
-                    DateTime dateTime = new DateTime(1, int.Parse(date[0]), int.Parse(date[1]));
+                    DateTime dateTime = new DateTime(1980, int.Parse(date[0]), int.Parse(date[1]));
                     List<string> nameList = new List<string>();
                     for (int j = 1; j < parts.Length; j++)
                     {
                         nameList.Add(parts[j]);
                     }
-
                     Vardadienis var = new Vardadienis(dateTime, nameList);
                     vardadieniai.Add(var);
                 }

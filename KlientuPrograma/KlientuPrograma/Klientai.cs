@@ -10,21 +10,38 @@ namespace KlientuPrograma
     {
         string vardas;
         string pavarde;
-        string vardString; //vardadieniai eilutes formatus
+        string vardString; //vardadieniai eilutes formatu, naudojama saugoti
         DateTime gimtadienis;
-        List<string> vardadieniai;
+        List<DateTime> vardadieniai;
         string pastabos;
         public Klientai (string vardas, string pavarde, DateTime gimtadienis, 
-            string vardadieniai, string pastabos)
+            string vardadieniai, string pastabos, VardadieniaiList VardadieniaiList)
         {
-            this.vardadieniai = new List<string>();
+            this.vardadieniai = new List<DateTime>();
             this.vardas = vardas;
             this.pavarde = pavarde;
-            this.vardString = vardadieniai;
             this.gimtadienis = gimtadienis;
             this.pastabos = pastabos;
-            foreach (string vard in vardadieniai.Split(';'))
-                this.vardadieniai.Add(vard);
+            if (vardadieniai != "")
+            {
+                //vardadieniai paimami is csv failo (rasti anksciau)
+                vardString = vardadieniai;
+                foreach (string vard in vardadieniai.Split(';'))
+                {
+                    string[] date = vard.Split('-');
+                    DateTime vardDate = new DateTime(1980, int.Parse(date[0]), int.Parse(date[1]));
+                    this.vardadieniai.Add(vardDate);
+                }
+            }
+            else
+            {
+                //vardadieniai surandami
+                vardString = "";
+                this.vardadieniai = VardadieniaiList.getAllDates(vardas);
+                foreach (DateTime data in this.vardadieniai)
+                    vardString = vardString + data.Month + "-" + data.Day + "; ";
+            }
+                
         }
         public string GetVardas()
         {
@@ -42,7 +59,7 @@ namespace KlientuPrograma
         {
             return gimtadienis;
         }
-        public List<String> GetVardadieniai()
+        public List<DateTime> GetVardadieniai()
         {
             return vardadieniai;
         }
@@ -53,15 +70,6 @@ namespace KlientuPrograma
         public void SetPastabos(string pastabos)
         {
             this.pastabos = pastabos;
-        }
-        public void ReadVardadieniai(List<Vardadienis> vardadieniaiList)
-        {
-            foreach (Vardadienis vardadienis in vardadieniaiList)
-            {
-                if (vardadienis.GetNames().Contains(vardas))
-                    vardadieniai.Add(vardadienis.GetDate().Month.ToString() +
-                        "-" + vardadienis.GetDate().Day.ToString());
-            }
         }
     }
 }
