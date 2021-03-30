@@ -19,6 +19,7 @@ namespace KlientuPrograma
         {
             InitializeComponent(); // ....
             tikrinti.Enabled = false;
+            siandienData.Text = DateTime.Now.Date.ToShortDateString();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -28,9 +29,7 @@ namespace KlientuPrograma
 
         private void siandienData_TextChanged(object sender, EventArgs e)
         {
-            DateTime data = DateTime.Now;
-            string naujas = Convert.ToString(data);
-            siandienData.Text = (naujas);
+           
         }
 
 

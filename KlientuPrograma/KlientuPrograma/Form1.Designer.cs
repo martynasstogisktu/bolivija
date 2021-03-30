@@ -31,7 +31,6 @@ namespace KlientuPrograma
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Langas));
             this.pilka_spalva = new System.Windows.Forms.Panel();
-            this.baze = new System.Windows.Forms.Button();
             this.klientai = new System.Windows.Forms.Button();
             this.paveikslas = new System.Windows.Forms.Panel();
             this.tikrinti = new System.Windows.Forms.Button();
@@ -65,13 +64,13 @@ namespace KlientuPrograma
             this.korekcijosRezLangas = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.ivestiGimt = new System.Windows.Forms.TextBox();
-            this.ivestiVard = new System.Windows.Forms.TextBox();
             this.RastiData = new System.Windows.Forms.Button();
             this.datRezLangas = new System.Windows.Forms.RichTextBox();
             this.siandienData = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.saugoti = new System.Windows.Forms.Button();
+            this.pakeisti = new System.Windows.Forms.Button();
             this.pilka_spalva.SuspendLayout();
             this.rezultatai.SuspendLayout();
             this.sarasas.SuspendLayout();
@@ -86,7 +85,6 @@ namespace KlientuPrograma
             // pilka_spalva
             // 
             this.pilka_spalva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.pilka_spalva.Controls.Add(this.baze);
             this.pilka_spalva.Controls.Add(this.klientai);
             this.pilka_spalva.Controls.Add(this.paveikslas);
             this.pilka_spalva.Controls.Add(this.tikrinti);
@@ -98,26 +96,12 @@ namespace KlientuPrograma
             this.pilka_spalva.Size = new System.Drawing.Size(204, 520);
             this.pilka_spalva.TabIndex = 0;
             // 
-            // baze
-            // 
-            this.baze.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.baze.Enabled = false;
-            this.baze.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baze.ForeColor = System.Drawing.Color.White;
-            this.baze.Location = new System.Drawing.Point(20, 300);
-            this.baze.Margin = new System.Windows.Forms.Padding(2);
-            this.baze.Name = "baze";
-            this.baze.Size = new System.Drawing.Size(163, 50);
-            this.baze.TabIndex = 7;
-            this.baze.Text = "Saugoti į duomenų bazę";
-            this.baze.UseVisualStyleBackColor = false;
-            // 
             // klientai
             // 
             this.klientai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
             this.klientai.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.klientai.ForeColor = System.Drawing.Color.White;
-            this.klientai.Location = new System.Drawing.Point(20, 125);
+            this.klientai.Location = new System.Drawing.Point(20, 135);
             this.klientai.Margin = new System.Windows.Forms.Padding(2);
             this.klientai.Name = "klientai";
             this.klientai.Size = new System.Drawing.Size(163, 50);
@@ -140,7 +124,7 @@ namespace KlientuPrograma
             this.tikrinti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
             this.tikrinti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tikrinti.ForeColor = System.Drawing.Color.White;
-            this.tikrinti.Location = new System.Drawing.Point(20, 182);
+            this.tikrinti.Location = new System.Drawing.Point(20, 220);
             this.tikrinti.Margin = new System.Windows.Forms.Padding(2);
             this.tikrinti.Name = "tikrinti";
             this.tikrinti.Size = new System.Drawing.Size(163, 50);
@@ -202,6 +186,8 @@ namespace KlientuPrograma
             // 
             this.sarasas.AutoScroll = true;
             this.sarasas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.sarasas.Controls.Add(this.pakeisti);
+            this.sarasas.Controls.Add(this.saugoti);
             this.sarasas.Controls.Add(this.dataGridView1);
             this.sarasas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.sarasas.Location = new System.Drawing.Point(4, 24);
@@ -486,36 +472,14 @@ namespace KlientuPrograma
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Controls.Add(this.textBox6);
             this.panel2.Controls.Add(this.textBox8);
             this.panel2.Controls.Add(this.ivestiGimt);
-            this.panel2.Controls.Add(this.ivestiVard);
             this.panel2.Controls.Add(this.RastiData);
             this.panel2.Controls.Add(this.datRezLangas);
             this.panel2.Location = new System.Drawing.Point(0, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(738, 351);
             this.panel2.TabIndex = 15;
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox6.Location = new System.Drawing.Point(467, 64);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(151, 20);
-            this.textBox6.TabIndex = 19;
-            this.textBox6.Text = "Įveskite vardadienio datą";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox8.Location = new System.Drawing.Point(115, 64);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(167, 20);
-            this.textBox8.TabIndex = 17;
-            this.textBox8.Text = "Įveskite gimtadienio datą";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ivestiGimt
             // 
@@ -524,18 +488,8 @@ namespace KlientuPrograma
             this.ivestiGimt.ForeColor = System.Drawing.Color.Black;
             this.ivestiGimt.Location = new System.Drawing.Point(20, 90);
             this.ivestiGimt.Name = "ivestiGimt";
-            this.ivestiGimt.Size = new System.Drawing.Size(343, 23);
+            this.ivestiGimt.Size = new System.Drawing.Size(694, 23);
             this.ivestiGimt.TabIndex = 8;
-            // 
-            // ivestiVard
-            // 
-            this.ivestiVard.BackColor = System.Drawing.Color.Gainsboro;
-            this.ivestiVard.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.ivestiVard.ForeColor = System.Drawing.Color.Black;
-            this.ivestiVard.Location = new System.Drawing.Point(367, 90);
-            this.ivestiVard.Name = "ivestiVard";
-            this.ivestiVard.Size = new System.Drawing.Size(343, 23);
-            this.ivestiVard.TabIndex = 10;
             // 
             // RastiData
             // 
@@ -543,7 +497,7 @@ namespace KlientuPrograma
             this.RastiData.Enabled = false;
             this.RastiData.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RastiData.ForeColor = System.Drawing.Color.White;
-            this.RastiData.Location = new System.Drawing.Point(198, 118);
+            this.RastiData.Location = new System.Drawing.Point(203, 119);
             this.RastiData.Margin = new System.Windows.Forms.Padding(2);
             this.RastiData.Name = "RastiData";
             this.RastiData.Size = new System.Drawing.Size(345, 37);
@@ -567,12 +521,48 @@ namespace KlientuPrograma
             this.siandienData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.siandienData.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.siandienData.ForeColor = System.Drawing.SystemColors.Window;
-            this.siandienData.Location = new System.Drawing.Point(741, 30);
+            this.siandienData.Location = new System.Drawing.Point(831, 30);
             this.siandienData.Name = "siandienData";
-            this.siandienData.Size = new System.Drawing.Size(167, 15);
+            this.siandienData.Size = new System.Drawing.Size(90, 15);
             this.siandienData.TabIndex = 20;
             this.siandienData.Text = "Data (space)";
             this.siandienData.TextChanged += new System.EventHandler(this.siandienData_TextChanged);
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox8.Location = new System.Drawing.Point(285, 64);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(167, 20);
+            this.textBox8.TabIndex = 17;
+            this.textBox8.Text = "Įveskite gimtadienio datą";
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // saugoti
+            // 
+            this.saugoti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.saugoti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saugoti.ForeColor = System.Drawing.Color.White;
+            this.saugoti.Location = new System.Drawing.Point(467, 290);
+            this.saugoti.Margin = new System.Windows.Forms.Padding(2);
+            this.saugoti.Name = "saugoti";
+            this.saugoti.Size = new System.Drawing.Size(163, 30);
+            this.saugoti.TabIndex = 8;
+            this.saugoti.Text = "Saugoti";
+            this.saugoti.UseVisualStyleBackColor = false;
+            // 
+            // pakeisti
+            // 
+            this.pakeisti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.pakeisti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pakeisti.ForeColor = System.Drawing.Color.White;
+            this.pakeisti.Location = new System.Drawing.Point(133, 290);
+            this.pakeisti.Margin = new System.Windows.Forms.Padding(2);
+            this.pakeisti.Name = "pakeisti";
+            this.pakeisti.Size = new System.Drawing.Size(163, 30);
+            this.pakeisti.TabIndex = 9;
+            this.pakeisti.Text = "Keisti į redagavimą";
+            this.pakeisti.UseVisualStyleBackColor = false;
             // 
             // Langas
             // 
@@ -642,16 +632,15 @@ namespace KlientuPrograma
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button Keisti;
-        private System.Windows.Forms.Button baze;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox ivestiGimt;
-        private System.Windows.Forms.TextBox ivestiVard;
         private System.Windows.Forms.Button RastiData;
         private System.Windows.Forms.RichTextBox datRezLangas;
         private System.Windows.Forms.TextBox siandienData;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button pakeisti;
+        private System.Windows.Forms.Button saugoti;
     }
 }
 
