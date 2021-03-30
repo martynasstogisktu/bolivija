@@ -18,3 +18,13 @@ C:\Users\karol\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPr
 C:\Users\karol\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.exe
 C:\Users\karol\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.pdb
 C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.Langas.resources
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.exe.config
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.exe
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.pdb
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csprojAssemblyReference.cache
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.Langas.resources
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.Properties.Resources.resources
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.GenerateResource.cache
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.CoreCompileInputs.cache
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.exe
+C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.pdb

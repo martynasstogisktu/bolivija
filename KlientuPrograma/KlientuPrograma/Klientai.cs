@@ -13,7 +13,8 @@ namespace KlientuPrograma
         string vardString; //vardadieniai eilutes formatu, naudojama saugoti
         DateTime gimtadienis;
         List<DateTime> vardadieniai;
-        string pastabos;
+        string pastabos;       
+        
         public Klientai (string vardas, string pavarde, DateTime gimtadienis, 
             string vardadieniai, string pastabos, VardadieniaiList VardadieniaiList)
         {
@@ -40,8 +41,7 @@ namespace KlientuPrograma
                 this.vardadieniai = VardadieniaiList.getAllDates(vardas);
                 foreach (DateTime data in this.vardadieniai)
                     vardString = vardString + data.Month + "-" + data.Day + "; ";
-            }
-                
+            }                
         }
         public string GetVardas()
         {
@@ -71,5 +71,13 @@ namespace KlientuPrograma
         {
             this.pastabos = pastabos;
         }
+        public bool Equals(string vardasB, string pavardeB, DateTime gimtadienisB)
+        {
+            if (vardas.Equals(vardasB) && pavarde.Equals(pavardeB)
+                && gimtadienis.Equals(gimtadienisB))
+                return true;
+            return false;
+        }
+        
     }
 }
