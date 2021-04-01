@@ -54,14 +54,9 @@ namespace KlientuPrograma
         {
             this.pastabos = pastabos;
         }
-        public void ReadVardadieniai(List<Vardadienis> vardadieniaiList)
+        public void ReadVardadieniai()
         {
-            foreach(Vardadienis vardadienis in vardadieniaiList)
-            {
-                if (vardadienis.GetNames().Contains(vardas))
-                    vardadieniai.Add(vardadienis.GetDate().Month.ToString() + 
-                        "-" + vardadienis.GetDate().Day.ToString());
-            }
+
         }
     }
 }
