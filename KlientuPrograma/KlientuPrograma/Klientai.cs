@@ -23,11 +23,12 @@ namespace KlientuPrograma
             this.pavarde = pavarde;
             this.gimtadienis = gimtadienis;
             this.pastabos = pastabos;
-            if (vardadieniai != "")
+            if (vardadieniai.Contains("-"))
             {
                 //vardadieniai paimami is csv failo (rasti anksciau)
                 vardString = vardadieniai;
-                foreach (string vard in vardadieniai.Split(';'))
+                char[] skir = {';', ' '};
+                foreach (string vard in vardadieniai.Split(skir, StringSplitOptions.RemoveEmptyEntries))
                 {
                     string[] date = vard.Split('-');
                     DateTime vardDate = new DateTime(1980, int.Parse(date[0]), int.Parse(date[1]));
@@ -78,6 +79,10 @@ namespace KlientuPrograma
                 return true;
             return false;
         }
-        
+        public string ToStringCSV()
+        {
+            return string.Format("{0},{1},{2},{3},{4}",
+                                 vardas, pavarde, gimtadienis, vardString, pastabos);
+        }
     }
 }

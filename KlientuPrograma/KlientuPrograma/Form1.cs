@@ -19,7 +19,10 @@ namespace KlientuPrograma
         {
             InitializeComponent(); // ....
             tikrinti.Enabled = false;
+            saugoti.Enabled = false;
+            irasyti.Enabled = false;
             siandienData.Text = DateTime.Now.Date.ToShortDateString();
+            dataGridView1.ReadOnly = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -77,6 +80,8 @@ namespace KlientuPrograma
                 }
             }
             tikrinti.Enabled = true;
+            saugoti.Enabled = true;
+            irasyti.Enabled = true;
         }
 
        
@@ -184,6 +189,56 @@ namespace KlientuPrograma
         private void svenciantysTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                dataGridView1.ReadOnly = false;
+                dataGridView1.Columns[3].ReadOnly = true;
+            }
+            else
+            {
+                dataGridView1.ReadOnly = true;
+            }
+        }
+
+        private void saugoti_Click(object sender, EventArgs e)
+        {
+            List<Klientai> naujasKlientuSarasas = new List<Klientai>();
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                string vardas = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                string pavarde = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                DateTime gimtadienis = DateTime.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                string vardadieniai = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                string pastabos = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                Klientai K = new Klientai(vardas, pavarde, gimtadienis,
+                    vardadieniai, pastabos, VardadieniaiList);
+                naujasKlientuSarasas.Add(K);
+            }
+            KlientuSarasas = naujasKlientuSarasas;
+        }
+
+        private void irasyti_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(CFd))
+                File.Delete(CFd);
+            using (var fr = new StreamWriter(File.Open(CFd,
+                                                 FileMode.Append), Encoding.UTF8))
+            {
+                fr.WriteLine("Vardas,Pavardė,Gimtadienis,Vardadieniai,Pastabos");
+                foreach (Klientai klientas in KlientuSarasas)
+                {
+                    fr.WriteLine(klientas.ToStringCSV());
+                }
+            }
         }
 
 
