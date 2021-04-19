@@ -82,6 +82,7 @@ namespace KlientuPrograma
             tikrinti.Enabled = true;
             saugoti.Enabled = true;
             irasyti.Enabled = true;
+            RastiData.Enabled = true;
         }
 
        
@@ -239,6 +240,75 @@ namespace KlientuPrograma
                     fr.WriteLine(klientas.ToStringCSV());
                 }
             }
+        }
+
+        private void RastiData_Click(object sender, EventArgs e)
+        {
+
+            datRezLangas.Clear();
+            string text = ivestiGimt.Text;
+            string[] parts = text.Split(',', '-', ':', ';', '.', ' ');
+            int month = int.Parse(parts[0]);
+            int day = int.Parse(parts[1]);
+            if (day > 0 && month > 0 && (month == 1 && day <= 31 || month == 2 && day <= 29 || month == 3 && day <= 31 ||
+                month == 4 && day <= 30 || month == 5 && day <= 31 || month == 6 && day <= 30
+                || month == 7 && day <= 31 || month == 8 && day <= 31 || month == 9 && day <= 30
+                || month == 10 && day <= 31 || month == 11 && day <= 30 || month == 12 && day <= 31))
+            {
+                RodytiGimtadienius(month, day);
+                RodytiVardadienius(month, day);
+            }
+            else
+            {
+                datRezLangas.AppendText("Tokia data neegzistuoja");
+            }
+
+        }
+
+        private void RodytiGimtadienius(int month, int day)
+        {
+            datRezLangas.AppendText(String.Format("{0}-{1} gimtadienį švenčia: \n", month, day));
+            bool yra = false;
+            foreach (Klientai client in KlientuSarasas)
+            {
+                if (client.GetGimtadienis().Month == month && client.GetGimtadienis().Day == day)
+                {
+                    yra = true;
+                    datRezLangas.AppendText(String.Format("{0} {1} \n", client.GetVardas(), client.GetPavarde()));
+                }
+            }
+
+            if (yra == false)
+            {
+                datRezLangas.AppendText("Tokie klientai nerasti \n");
+            }
+            datRezLangas.AppendText("\n");
+
+        }
+        private void RodytiVardadienius(int month, int day)
+        {
+            List<string> vardai = VardadieniaiList.getAllVardai(month, day);
+            bool yra = false;
+            datRezLangas.AppendText(String.Format("{0}-{1} vardadienį švenčia: \n", month, day));
+            foreach (string name in vardai)
+            {
+                foreach (Klientai client in KlientuSarasas)
+                {
+                    if (client.GetVardas() == name)
+                    {
+                        yra = true;
+                        datRezLangas.AppendText(String.Format("{0} {1} \n", client.GetVardas(), client.GetPavarde()));
+                    }
+                }
+            }
+            if (yra == false)
+            {
+                datRezLangas.AppendText("Tokie klientai nerasti \n");
+            }
+            datRezLangas.AppendText("\n");
+
+
+
         }
 
 

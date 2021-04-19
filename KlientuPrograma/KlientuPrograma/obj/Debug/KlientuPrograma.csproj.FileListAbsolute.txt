@@ -28,3 +28,13 @@ C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\K
 C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.CoreCompileInputs.cache
 C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.exe
 C:\Users\karol\source\repos\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.pdb
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.exe.config
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.exe
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\bin\Debug\KlientuPrograma.pdb
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csprojAssemblyReference.cache
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.Langas.resources
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.Properties.Resources.resources
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.GenerateResource.cache
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.CoreCompileInputs.cache
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.exe
+C:\Users\Ignas\Documents\Programavimo inžinerija\Bolivija\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.pdb
