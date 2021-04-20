@@ -44,6 +44,7 @@ namespace KlientuPrograma
                     vardString = vardString + data.Month + "-" + data.Day + "; ";
             }                
         }
+
         public string GetVardas()
         {
             return vardas;
@@ -72,10 +73,36 @@ namespace KlientuPrograma
         {
             this.pastabos = pastabos;
         }
+        public void SetVardas(string vardas)
+        {
+            this.vardas = vardas;
+        }
+        public void SetVardadieniai(VardadieniaiList VardadieniaiList)
+        {
+            vardString = "";
+            this.vardadieniai = VardadieniaiList.getAllDates(vardas);
+            foreach (DateTime data in this.vardadieniai)
+                vardString = vardString + data.Month + "-" + data.Day + "; ";
+        }
+       
+        public void SetPavarde(string pavarde)
+        {
+            this.pavarde = pavarde;
+        }
+        public void SetData(DateTime gimtadienis)
+        {
+            this.gimtadienis = gimtadienis;
+        }
         public bool Equals(string vardasB, string pavardeB, DateTime gimtadienisB)
         {
             if (vardas.Equals(vardasB) && pavarde.Equals(pavardeB)
                 && gimtadienis.Equals(gimtadienisB))
+                return true;
+            return false;
+        }
+        public bool Equals1(string vardasB, string pavardeB)
+        {
+            if (vardas.Equals(vardasB) && pavarde.Equals(pavardeB))
                 return true;
             return false;
         }
