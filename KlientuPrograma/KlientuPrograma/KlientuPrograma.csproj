@@ -93,6 +93,7 @@
     <None Include="Resources\Vector.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Frame 1 %285%291.jpg" />
     <Content Include="vardadieniuDatos.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

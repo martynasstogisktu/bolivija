@@ -32,11 +32,9 @@ namespace KlientuPrograma
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Langas));
             this.pilka_spalva = new System.Windows.Forms.Panel();
             this.klientai = new System.Windows.Forms.Button();
-            this.paveikslas = new System.Windows.Forms.Panel();
             this.tikrinti = new System.Windows.Forms.Button();
             this.pavadinimas = new System.Windows.Forms.Label();
             this.Sviesi_linija = new System.Windows.Forms.Panel();
-            this.isjungti = new System.Windows.Forms.Button();
             this.rezultatai = new System.Windows.Forms.TabControl();
             this.sarasas = new System.Windows.Forms.TabPage();
             this.irasyti = new System.Windows.Forms.Button();
@@ -77,6 +75,9 @@ namespace KlientuPrograma
             this.RastiData = new System.Windows.Forms.Button();
             this.datRezLangas = new System.Windows.Forms.RichTextBox();
             this.siandienData = new System.Windows.Forms.TextBox();
+            this.undo = new System.Windows.Forms.Button();
+            this.isjungti = new System.Windows.Forms.Button();
+            this.paveikslas = new System.Windows.Forms.Panel();
             this.pilka_spalva.SuspendLayout();
             this.rezultatai.SuspendLayout();
             this.sarasas.SuspendLayout();
@@ -116,15 +117,6 @@ namespace KlientuPrograma
             this.klientai.UseVisualStyleBackColor = false;
             this.klientai.Click += new System.EventHandler(this.klientai_Click);
             // 
-            // paveikslas
-            // 
-            this.paveikslas.BackgroundImage = global::KlientuPrograma.Properties.Resources.value_1;
-            this.paveikslas.Location = new System.Drawing.Point(20, 398);
-            this.paveikslas.Margin = new System.Windows.Forms.Padding(2);
-            this.paveikslas.Name = "paveikslas";
-            this.paveikslas.Size = new System.Drawing.Size(98, 102);
-            this.paveikslas.TabIndex = 4;
-            // 
             // tikrinti
             // 
             this.tikrinti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
@@ -161,19 +153,6 @@ namespace KlientuPrograma
             this.Sviesi_linija.Size = new System.Drawing.Size(4, 520);
             this.Sviesi_linija.TabIndex = 1;
             // 
-            // isjungti
-            // 
-            this.isjungti.BackColor = System.Drawing.Color.Transparent;
-            this.isjungti.BackgroundImage = global::KlientuPrograma.Properties.Resources.Vector;
-            this.isjungti.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.isjungti.Location = new System.Drawing.Point(940, 11);
-            this.isjungti.Margin = new System.Windows.Forms.Padding(2);
-            this.isjungti.Name = "isjungti";
-            this.isjungti.Size = new System.Drawing.Size(34, 34);
-            this.isjungti.TabIndex = 2;
-            this.isjungti.UseVisualStyleBackColor = false;
-            this.isjungti.Click += new System.EventHandler(this.button5_Click);
-            // 
             // rezultatai
             // 
             this.rezultatai.Controls.Add(this.sarasas);
@@ -192,6 +171,7 @@ namespace KlientuPrograma
             // 
             this.sarasas.AutoScroll = true;
             this.sarasas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.sarasas.Controls.Add(this.undo);
             this.sarasas.Controls.Add(this.irasyti);
             this.sarasas.Controls.Add(this.checkBox1);
             this.sarasas.Controls.Add(this.saugoti);
@@ -670,6 +650,40 @@ namespace KlientuPrograma
             this.siandienData.Text = "Data (space)";
             this.siandienData.TextChanged += new System.EventHandler(this.siandienData_TextChanged);
             // 
+            // undo
+            // 
+            this.undo.BackColor = System.Drawing.Color.Transparent;
+            this.undo.BackgroundImage = global::KlientuPrograma.Properties.Resources.Frame_1__5_1;
+            this.undo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.undo.Location = new System.Drawing.Point(659, 381);
+            this.undo.Margin = new System.Windows.Forms.Padding(2);
+            this.undo.Name = "undo";
+            this.undo.Size = new System.Drawing.Size(30, 30);
+            this.undo.TabIndex = 21;
+            this.undo.UseVisualStyleBackColor = false;
+            // 
+            // isjungti
+            // 
+            this.isjungti.BackColor = System.Drawing.Color.Transparent;
+            this.isjungti.BackgroundImage = global::KlientuPrograma.Properties.Resources.Vector;
+            this.isjungti.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.isjungti.Location = new System.Drawing.Point(940, 11);
+            this.isjungti.Margin = new System.Windows.Forms.Padding(2);
+            this.isjungti.Name = "isjungti";
+            this.isjungti.Size = new System.Drawing.Size(34, 34);
+            this.isjungti.TabIndex = 2;
+            this.isjungti.UseVisualStyleBackColor = false;
+            this.isjungti.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // paveikslas
+            // 
+            this.paveikslas.BackgroundImage = global::KlientuPrograma.Properties.Resources.value_1;
+            this.paveikslas.Location = new System.Drawing.Point(20, 398);
+            this.paveikslas.Margin = new System.Windows.Forms.Padding(2);
+            this.paveikslas.Name = "paveikslas";
+            this.paveikslas.Size = new System.Drawing.Size(98, 102);
+            this.paveikslas.TabIndex = 4;
+            // 
             // Langas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -754,6 +768,7 @@ namespace KlientuPrograma
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button undo;
     }
 }
 
