@@ -36,9 +36,9 @@ namespace KlientuPrograma
             this.tikrinti = new System.Windows.Forms.Button();
             this.pavadinimas = new System.Windows.Forms.Label();
             this.Sviesi_linija = new System.Windows.Forms.Panel();
-            this.isjungti = new System.Windows.Forms.Button();
             this.rezultatai = new System.Windows.Forms.TabControl();
             this.sarasas = new System.Windows.Forms.TabPage();
+            this.undo = new System.Windows.Forms.Button();
             this.irasyti = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.saugoti = new System.Windows.Forms.Button();
@@ -72,11 +72,18 @@ namespace KlientuPrograma
             this.korekcijosRezLangas = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.ivestiGimt = new System.Windows.Forms.TextBox();
             this.RastiData = new System.Windows.Forms.Button();
             this.datRezLangas = new System.Windows.Forms.RichTextBox();
             this.siandienData = new System.Windows.Forms.TextBox();
+            this.isjungti = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.menuo = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.vardRezLang = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.pilka_spalva.SuspendLayout();
             this.rezultatai.SuspendLayout();
             this.sarasas.SuspendLayout();
@@ -161,19 +168,6 @@ namespace KlientuPrograma
             this.Sviesi_linija.Size = new System.Drawing.Size(4, 520);
             this.Sviesi_linija.TabIndex = 1;
             // 
-            // isjungti
-            // 
-            this.isjungti.BackColor = System.Drawing.Color.Transparent;
-            this.isjungti.BackgroundImage = global::KlientuPrograma.Properties.Resources.Vector;
-            this.isjungti.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.isjungti.Location = new System.Drawing.Point(940, 11);
-            this.isjungti.Margin = new System.Windows.Forms.Padding(2);
-            this.isjungti.Name = "isjungti";
-            this.isjungti.Size = new System.Drawing.Size(34, 34);
-            this.isjungti.TabIndex = 2;
-            this.isjungti.UseVisualStyleBackColor = false;
-            this.isjungti.Click += new System.EventHandler(this.button5_Click);
-            // 
             // rezultatai
             // 
             this.rezultatai.Controls.Add(this.sarasas);
@@ -192,6 +186,7 @@ namespace KlientuPrograma
             // 
             this.sarasas.AutoScroll = true;
             this.sarasas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.sarasas.Controls.Add(this.undo);
             this.sarasas.Controls.Add(this.irasyti);
             this.sarasas.Controls.Add(this.checkBox1);
             this.sarasas.Controls.Add(this.saugoti);
@@ -204,6 +199,18 @@ namespace KlientuPrograma
             this.sarasas.Size = new System.Drawing.Size(726, 422);
             this.sarasas.TabIndex = 0;
             this.sarasas.Text = "Sąrašas";
+            // 
+            // undo
+            // 
+            this.undo.BackColor = System.Drawing.Color.Transparent;
+            this.undo.BackgroundImage = global::KlientuPrograma.Properties.Resources.Frame_1__5_1;
+            this.undo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.undo.Location = new System.Drawing.Point(659, 381);
+            this.undo.Margin = new System.Windows.Forms.Padding(2);
+            this.undo.Name = "undo";
+            this.undo.Size = new System.Drawing.Size(30, 30);
+            this.undo.TabIndex = 21;
+            this.undo.UseVisualStyleBackColor = false;
             // 
             // irasyti
             // 
@@ -603,7 +610,13 @@ namespace KlientuPrograma
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Controls.Add(this.textBox8);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.vardRezLang);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.menuo);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.ivestiGimt);
             this.panel2.Controls.Add(this.RastiData);
             this.panel2.Controls.Add(this.datRezLangas);
@@ -612,24 +625,14 @@ namespace KlientuPrograma
             this.panel2.Size = new System.Drawing.Size(738, 420);
             this.panel2.TabIndex = 15;
             // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox8.Location = new System.Drawing.Point(285, 64);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(167, 20);
-            this.textBox8.TabIndex = 17;
-            this.textBox8.Text = "Nurodykite dieną (pvz. 05-24)";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // ivestiGimt
             // 
             this.ivestiGimt.BackColor = System.Drawing.Color.Gainsboro;
             this.ivestiGimt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.ivestiGimt.ForeColor = System.Drawing.Color.Black;
-            this.ivestiGimt.Location = new System.Drawing.Point(20, 90);
+            this.ivestiGimt.Location = new System.Drawing.Point(289, 218);
             this.ivestiGimt.Name = "ivestiGimt";
-            this.ivestiGimt.Size = new System.Drawing.Size(694, 23);
+            this.ivestiGimt.Size = new System.Drawing.Size(151, 23);
             this.ivestiGimt.TabIndex = 8;
             // 
             // RastiData
@@ -638,24 +641,24 @@ namespace KlientuPrograma
             this.RastiData.Enabled = false;
             this.RastiData.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RastiData.ForeColor = System.Drawing.Color.White;
-            this.RastiData.Location = new System.Drawing.Point(203, 119);
+            this.RastiData.Location = new System.Drawing.Point(289, 290);
             this.RastiData.Margin = new System.Windows.Forms.Padding(2);
             this.RastiData.Name = "RastiData";
-            this.RastiData.Size = new System.Drawing.Size(345, 37);
+            this.RastiData.Size = new System.Drawing.Size(153, 67);
             this.RastiData.TabIndex = 15;
-            this.RastiData.Text = "Rasti šventes nurodytą dieną";
+            this.RastiData.Text = "Rasti šventę/es";
             this.RastiData.UseVisualStyleBackColor = false;
             this.RastiData.Click += new System.EventHandler(this.RastiData_Click);
             // 
             // datRezLangas
             // 
             this.datRezLangas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.datRezLangas.Location = new System.Drawing.Point(188, 172);
+            this.datRezLangas.Location = new System.Drawing.Point(19, 84);
             this.datRezLangas.Name = "datRezLangas";
             this.datRezLangas.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.datRezLangas.Size = new System.Drawing.Size(374, 131);
+            this.datRezLangas.Size = new System.Drawing.Size(240, 273);
             this.datRezLangas.TabIndex = 0;
-            this.datRezLangas.Text = "Konkrečios datos šventės";
+            this.datRezLangas.Text = "\n               Konkrečios datos gimtadienius\n\t      švenčiantys klientai";
             // 
             // siandienData
             // 
@@ -669,6 +672,99 @@ namespace KlientuPrograma
             this.siandienData.TabIndex = 20;
             this.siandienData.Text = "Data (space)";
             this.siandienData.TextChanged += new System.EventHandler(this.siandienData_TextChanged);
+            // 
+            // isjungti
+            // 
+            this.isjungti.BackColor = System.Drawing.Color.Transparent;
+            this.isjungti.BackgroundImage = global::KlientuPrograma.Properties.Resources.Vector;
+            this.isjungti.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.isjungti.Location = new System.Drawing.Point(940, 11);
+            this.isjungti.Margin = new System.Windows.Forms.Padding(2);
+            this.isjungti.Name = "isjungti";
+            this.isjungti.Size = new System.Drawing.Size(34, 34);
+            this.isjungti.TabIndex = 2;
+            this.isjungti.UseVisualStyleBackColor = false;
+            this.isjungti.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(292, 194);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(143, 21);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Nurodykite dieną";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(288, 118);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(152, 21);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Nurodykite mėnesį";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(180, 36);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(398, 21);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Švenčiančių klientų paieška pagal pasirinktą datą";
+            // 
+            // menuo
+            // 
+            this.menuo.BackColor = System.Drawing.Color.Gainsboro;
+            this.menuo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.menuo.ForeColor = System.Drawing.Color.Black;
+            this.menuo.Location = new System.Drawing.Point(289, 159);
+            this.menuo.Name = "menuo";
+            this.menuo.Size = new System.Drawing.Size(151, 23);
+            this.menuo.TabIndex = 20;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(289, 139);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(153, 17);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "(arabiškais skaitmenimis)";
+            // 
+            // vardRezLang
+            // 
+            this.vardRezLang.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.vardRezLang.Location = new System.Drawing.Point(468, 84);
+            this.vardRezLang.Name = "vardRezLang";
+            this.vardRezLang.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.vardRezLang.Size = new System.Drawing.Size(240, 273);
+            this.vardRezLang.TabIndex = 23;
+            this.vardRezLang.Text = "\n               Konkrečios datos vardadienius\n\t      švenčiantys klientai";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(504, 387);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(199, 17);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "*nebūtina užpildyti abu langelius";
             // 
             // Langas
             // 
@@ -741,7 +837,6 @@ namespace KlientuPrograma
         private System.Windows.Forms.Button RastiData;
         private System.Windows.Forms.RichTextBox datRezLangas;
         private System.Windows.Forms.TextBox siandienData;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button saugoti;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button irasyti;
@@ -754,6 +849,14 @@ namespace KlientuPrograma
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button undo;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.RichTextBox vardRezLang;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox menuo;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }
 
