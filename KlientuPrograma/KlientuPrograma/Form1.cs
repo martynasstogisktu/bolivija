@@ -312,13 +312,14 @@ namespace KlientuPrograma
                 string vardas = dataGridView1.Rows[i].Cells[0].Value.ToString();
                 string pavarde = dataGridView1.Rows[i].Cells[1].Value.ToString();
                 DateTime gimtadienis = DateTime.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
-                string vardadieniai = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                string vardadieniai = "";
                 string pastabos = dataGridView1.Rows[i].Cells[4].Value.ToString();
                 Klientai K = new Klientai(vardas, pavarde, gimtadienis,
                     vardadieniai, pastabos, VardadieniaiList);
                 naujasKlientuSarasas.Add(K);
             }
             KlientuSarasas = naujasKlientuSarasas;
+            isvesti();
         }
 
         private void irasyti_Click(object sender, EventArgs e)
