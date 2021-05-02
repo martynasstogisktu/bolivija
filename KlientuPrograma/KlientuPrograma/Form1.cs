@@ -13,8 +13,8 @@ namespace KlientuPrograma
         string CFd = "../../Klientai.csv";
         private List<Klientai> KlientuSarasas;
         private VardadieniaiList VardadieniaiList = new VardadieniaiList();
+        popup popup = new popup();
 
-        
         public Langas()
         {
             InitializeComponent(); // ....
@@ -23,6 +23,7 @@ namespace KlientuPrograma
             irasyti.Enabled = false;
             siandienData.Text = DateTime.Now.Date.ToShortDateString();
             dataGridView1.ReadOnly = true;
+            popup popup = new popup();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -160,7 +161,7 @@ namespace KlientuPrograma
         {            
             string Vardas = Convert.ToString(vardas.Text);
             string Pavarde = Convert.ToString(pavarde.Text);
-            DateTime data ;
+            DateTime data;
             korekcijosRezLangas.Clear();
             if ((Vardas != "") && (Pavarde != ""))
             {
@@ -311,7 +312,19 @@ namespace KlientuPrograma
             {
                 string vardas = dataGridView1.Rows[i].Cells[0].Value.ToString();
                 string pavarde = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                DateTime gimtadienis = DateTime.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                DateTime gimtadienis;
+                try
+                {
+                    gimtadienis = DateTime.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                }
+                catch
+                {
+                    popup.Show();
+                    popup.Left = 750;
+                    popup.Top = 500;
+                    popup.text("Neteisingai įvesta data klientui " + vardas + " " + pavarde);
+                    return;
+                }
                 string vardadieniai = "";
                 string pastabos = dataGridView1.Rows[i].Cells[4].Value.ToString();
                 Klientai K = new Klientai(vardas, pavarde, gimtadienis,

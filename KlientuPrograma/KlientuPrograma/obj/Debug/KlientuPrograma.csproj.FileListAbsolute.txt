@@ -48,3 +48,4 @@ C:\Users\karol\source\repos\New folder\KlientuPrograma\KlientuPrograma\obj\Debug
 C:\Users\karol\source\repos\New folder\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.csproj.CoreCompileInputs.cache
 C:\Users\karol\source\repos\New folder\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.exe
 C:\Users\karol\source\repos\New folder\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.pdb
+C:\Users\saule\Source\Repos\martynasstogisktu\bolivija\KlientuPrograma\KlientuPrograma\obj\Debug\KlientuPrograma.popup.resources
