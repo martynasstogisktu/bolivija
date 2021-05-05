@@ -11,7 +11,7 @@ namespace KlientuPrograma
         
         int inde = -1;
         string CFd = "../../Klientai.csv";
-        private List<Klientai> KlientuSarasas;
+        private List<Klientai> KlientuSarasas=new List<Klientai>();
         private VardadieniaiList VardadieniaiList = new VardadieniaiList();
 
         
@@ -157,56 +157,142 @@ namespace KlientuPrograma
         }
 
         private void ieskoti_Click(object sender, EventArgs e)
-        {            
-            string Vardas = Convert.ToString(vardas.Text);
-            string Pavarde = Convert.ToString(pavarde.Text);
-            DateTime data ;
-            korekcijosRezLangas.Clear();
-            if ((Vardas != "") && (Pavarde != ""))
+        {
+            try
             {
-                Keisti.Enabled = true;
-                int indeksas = paieska1(Vardas, Pavarde);
-                inde = indeksas;
-                if (indeksas != -1)
+                Keisti.Enabled = false;
+                korekcijosRezLangas.Clear();
+                string vardText;
+                string pavardText;
+                DateTime data;
+                if (KlientuSarasas == null)
                 {
-                    Klientai klientas = KlientuSarasas[inde];                    
-                    List<DateTime> vardadieniai;
-                    DateTime gimtadienis = klientas.GetGimtadienis();
-                    vardadieniai = klientas.GetVardadieniai();
-                    korekcijosRezLangas.Text = (" Gimtadienis: " + gimtadienis.ToString("d") + ", Vardadienis/ai: ");
-
-                    foreach (DateTime vardData in vardadieniai)
-                    {
-                        korekcijosRezLangas.AppendText(vardData.ToString("M") + " ");                            
-                    }                                    
-                    string svente = ("\nArtimiausia šventė GIMTADIENIS: " + gimtadienis.ToString("M"));
-                    int min = Convert.ToInt32((gimtadienis.Month * 31 + gimtadienis.Day) - (DateTime.Today.Day + DateTime.Today.Month * 31));
-                    
-                    if (min < 0)
-                    {
-                        min = min + 365;
-                    }
-
-                    foreach (DateTime vard in vardadieniai)
-                    {
-                        int naujas = Convert.ToInt32((vard.Month * 31 + vard.Day) - (DateTime.Today.Day + DateTime.Today.Month * 31));
-                        if (naujas < 0)
-                        {
-                            naujas = naujas + 365;
-                        }
-                        if (naujas < min)
-                        {
-                            min = naujas;
-                            svente = ("\nArtimiausia šventė VARDADIENIS: " + vard.ToString("M"));
-                        }
-                    }
-                    korekcijosRezLangas.AppendText(svente); 
+                    korekcijosRezLangas.Text = "Klientų sąrašas tuščias";
                 }
-                else korekcijosRezLangas.AppendText("\n Klientas nerastas, pasitikrinkite įvestus duomenis\n");
+
+                else if (vardas.Text != "" && pavarde.Text != "" && gimimo_data.Text != "")
+                {
+                    vardText = Convert.ToString(vardas.Text);
+                    pavardText = Convert.ToString(pavarde.Text);
+                    data = DateTime.Parse(gimimo_data.Text);
+                    int indeksas = paieska(vardText, pavardText, data);
+                    inde = indeksas;
+                    if (indeksas != -1)
+                    {
+                        Keisti.Enabled = true;
+                        Klientai klientas = KlientuSarasas[inde];
+                        List<DateTime> vardadieniai;
+                        DateTime gimtadienis = klientas.GetGimtadienis();
+                        vardadieniai = klientas.GetVardadieniai();
+                        korekcijosRezLangas.Text = ("Gimtadienis: " + gimtadienis.ToString("d") + ", Vardadienis/ai: ");
+
+                        foreach (DateTime vardData in vardadieniai)
+                        {
+                            korekcijosRezLangas.AppendText(vardData.ToString("M") + " ");
+                        }
+                        string svente = ("\nArtimiausia šventė GIMTADIENIS: " + gimtadienis.ToString("M"));
+                        int min = Convert.ToInt32((gimtadienis.Month * 31 + gimtadienis.Day) - (DateTime.Today.Day + DateTime.Today.Month * 31));
+
+                        if (min < 0)
+                        {
+                            min = min + 365;
+                        }
+
+                        foreach (DateTime vard in vardadieniai)
+                        {
+                            int naujas = Convert.ToInt32((vard.Month * 31 + vard.Day) - (DateTime.Today.Day + DateTime.Today.Month * 31));
+                            if (naujas < 0)
+                            {
+                                naujas = naujas + 365;
+                            }
+                            if (naujas < min)
+                            {
+                                min = naujas;
+                                svente = ("\nArtimiausia šventė VARDADIENIS: " + vard.ToString("M"));
+                            }
+                        }
+                        korekcijosRezLangas.AppendText(svente);
+                    }
+                    else korekcijosRezLangas.AppendText("\n Klientas nerastas, pasitikrinkite įvestus duomenis\n");
+
+
+                }
+                else if (vardas.Text != "" && pavarde.Text != "")
+                {
+                    vardText = Convert.ToString(vardas.Text);
+                    pavardText = Convert.ToString(pavarde.Text);
+                    List<int> indeksai = paieskaPagalVardaPavarde(vardText, pavardText);
+                    if (indeksai.Count == 0)
+                    {
+                        korekcijosRezLangas.AppendText("\n Klientai nerasti\n");
+                    }
+
+                    foreach (int indeksas in indeksai)
+                    {
+                        List<DateTime> vardadieniai = KlientuSarasas[indeksas].GetVardadieniai();
+                        korekcijosRezLangas.AppendText(KlientuSarasas[indeksas].GetVardas() + " " + KlientuSarasas[indeksas].GetPavarde() + "\n");
+                        korekcijosRezLangas.AppendText("Gimtadienis: " + KlientuSarasas[indeksas].GetGimtadienis().ToString("d") + ", \nVardadienis/ai: ");
+                        foreach (DateTime vardData in vardadieniai)
+                        {
+                            korekcijosRezLangas.AppendText(vardData.ToString("M") + " ");
+                        }
+                        korekcijosRezLangas.AppendText("\n\n");
+                    }
+
+                }
+                else if (vardas.Text != "")
+                {
+                    vardText = Convert.ToString(vardas.Text);
+                    List<int> indeksai = paieskaPagalVarda(vardText);
+                    if (indeksai.Count == 0)
+                    {
+                        korekcijosRezLangas.AppendText("\n Klientai nerasti\n");
+                    }
+
+                    foreach (int indeksas in indeksai)
+                    {
+                        List<DateTime> vardadieniai = KlientuSarasas[indeksas].GetVardadieniai();
+                        korekcijosRezLangas.AppendText(KlientuSarasas[indeksas].GetVardas() + " " + KlientuSarasas[indeksas].GetPavarde() + "\n");
+                        korekcijosRezLangas.AppendText("Gimtadienis: " + KlientuSarasas[indeksas].GetGimtadienis().ToString("d") + ", \nVardadienis/ai: ");
+                        foreach (DateTime vardData in vardadieniai)
+                        {
+                            korekcijosRezLangas.AppendText(vardData.ToString("M") + " ");
+                        }
+                        korekcijosRezLangas.AppendText("\n\n");
+                    }
+                }
+                else if (pavarde.Text != "")
+                {
+                    pavardText = Convert.ToString(pavarde.Text);
+                    List<int> indeksai = paieskaPagalPavarde(pavardText);
+                    if (indeksai.Count == 0)
+                    {
+                        korekcijosRezLangas.AppendText("\n Klientai nerasti\n");
+                    }
+
+                    foreach (int indeksas in indeksai)
+                    {
+                        List<DateTime> vardadieniai = KlientuSarasas[indeksas].GetVardadieniai();
+                        korekcijosRezLangas.AppendText(KlientuSarasas[indeksas].GetVardas() + " " + KlientuSarasas[indeksas].GetPavarde() + "\n");
+                        korekcijosRezLangas.AppendText("Gimtadienis: " + KlientuSarasas[indeksas].GetGimtadienis().ToString("d") + ", \nVardadienis/ai: ");
+                        foreach (DateTime vardData in vardadieniai)
+                        {
+                            korekcijosRezLangas.AppendText(vardData.ToString("M") + " ");
+                        }
+                        korekcijosRezLangas.AppendText("\n\n");
+                    }
+                }
+                else
+                {
+                    korekcijosRezLangas.Text = "\n Neįvesti duomenys paieškai\n";
+                }
             }
-            else korekcijosRezLangas.AppendText("\n Klientas nerastas, pasitikrinkite įvestus duomenis\n");
+            catch 
+            {
+                korekcijosRezLangas.Text = "Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte duomenis";
+            }
         }
-        
+
         private void Keisti_Click(object sender, EventArgs e)
         {
             string Vardas = Convert.ToString(vardas.Text);
@@ -250,7 +336,7 @@ namespace KlientuPrograma
         {
             for (int i = 0; i < KlientuSarasas.Count; i++)
             {
-                if(KlientuSarasas[i].Equals(vardas, pavarde, gimtadienis))
+                if(KlientuSarasas[i].Equals(vardas.Trim(), pavarde.Trim(), gimtadienis))
                 {
                     return i;
                 }
@@ -261,12 +347,53 @@ namespace KlientuPrograma
         {
             for (int i = 0; i < KlientuSarasas.Count; i++)
             {
-                if (KlientuSarasas[i].Equals1(vardas, pavarde))
+                if (KlientuSarasas[i].Equals1(vardas.Trim(), pavarde.Trim()))
                 {
                     return i;
                 }
             }
             return -1;
+        }
+
+        public List<int> paieskaPagalVardaPavarde(string vardas, string pavarde)
+        {
+            List<int> indeksai = new List<int>();
+            for (int i = 0; i < KlientuSarasas.Count; i++)
+            {
+                if (KlientuSarasas[i].Equals1(vardas.Trim(), pavarde.Trim()))
+                {
+                    indeksai.Add(i);
+                }
+            }
+            return indeksai;
+        }
+
+        public List<int> paieskaPagalVarda(string vardas)
+        {
+            List<int> indeksai = new List<int>();
+            for (int i = 0; i < KlientuSarasas.Count; i++)
+            {
+                if (KlientuSarasas[i].GetVardas().ToLower().StartsWith(vardas.Trim().ToLower())||
+                    KlientuSarasas[i].GetVardas().ToLower().Equals(vardas.Trim().ToLower()))
+                {
+                    indeksai.Add(i);
+                }
+            }
+            return indeksai;
+        }
+
+        public List<int> paieskaPagalPavarde(string pavarde)
+        {
+            List<int> indeksai = new List<int>();
+            for (int i = 0; i < KlientuSarasas.Count; i++)
+            {
+                if (KlientuSarasas[i].GetPavarde().ToLower().StartsWith(pavarde.Trim().ToLower()) ||
+                    KlientuSarasas[i].GetPavarde().ToLower().Equals(pavarde.Trim().ToLower()))
+                {
+                    indeksai.Add(i);
+                }
+            }
+            return indeksai;
         }
 
 
@@ -338,24 +465,27 @@ namespace KlientuPrograma
 
         private void RastiData_Click(object sender, EventArgs e)
         {
-
-            datRezLangas.Clear();
-            string text = ivestiGimt.Text;
-            string[] parts = text.Split(',', '-', ':', ';', '.', ' ');
-            int month = int.Parse(parts[0]);
-            int day = int.Parse(parts[1]);
-            if (day > 0 && month > 0 && (month == 1 && day <= 31 || month == 2 && day <= 29 || month == 3 && day <= 31 ||
-                month == 4 && day <= 30 || month == 5 && day <= 31 || month == 6 && day <= 30
-                || month == 7 && day <= 31 || month == 8 && day <= 31 || month == 9 && day <= 30
-                || month == 10 && day <= 31 || month == 11 && day <= 30 || month == 12 && day <= 31))
+            try
             {
-                RodytiGimtadienius(month, day);
-                RodytiVardadienius(month, day);
+                datRezLangas.Clear();
+                string text = ivestiGimt.Text;
+                string[] parts = text.Split(',', '-', ':', ';', '.', ' ');
+                int month = int.Parse(parts[0]);
+                int day = int.Parse(parts[1]);
+                if (day > 0 && month > 0 && (month == 1 && day <= 31 || month == 2 && day <= 29 || month == 3 && day <= 31 ||
+                    month == 4 && day <= 30 || month == 5 && day <= 31 || month == 6 && day <= 30
+                    || month == 7 && day <= 31 || month == 8 && day <= 31 || month == 9 && day <= 30
+                    || month == 10 && day <= 31 || month == 11 && day <= 30 || month == 12 && day <= 31))
+                {
+                    RodytiGimtadienius(month, day);
+                    RodytiVardadienius(month, day);
+                }
+                else
+                {
+                    datRezLangas.AppendText("Tokia data neegzistuoja");
+                }
             }
-            else
-            {
-                datRezLangas.AppendText("Tokia data neegzistuoja");
-            }
+            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą","Klaida"); }
 
         }
 
