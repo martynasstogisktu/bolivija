@@ -11,6 +11,7 @@ namespace KlientuPrograma
         
         int inde = -1;
         string CFd = "../../Klientai.csv";
+        string CFold = "../../Klientai_old.csv";
         private List<Klientai> KlientuSarasas;
         private VardadieniaiList VardadieniaiList = new VardadieniaiList();
         popup popup = new popup();
@@ -24,6 +25,7 @@ namespace KlientuPrograma
             siandienData.Text = DateTime.Now.Date.ToShortDateString();
             dataGridView1.ReadOnly = true;
             popup popup = new popup();
+            undo.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -65,30 +67,9 @@ namespace KlientuPrograma
         }
         private void klientai_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            KlientuSarasas = new List<Klientai>();
-            using (StreamReader reader = new StreamReader(CFd, Encoding.UTF8))
-            {
-                string line = reader.ReadLine();
-                while ((line = reader.ReadLine()) != null)
-                {
-                    string[] parts = line.Split(',');
-                    string vardas = parts[0];
-                    string pavarde = parts[1];
-                    DateTime gimtadienis = DateTime.Parse(parts[2]);
-                    string vardadieniai = parts[3];
-                    string pastabos = parts[4];
-                    Klientai K = new Klientai(vardas, pavarde, gimtadienis, 
-                        vardadieniai, pastabos, VardadieniaiList);
-                    KlientuSarasas.Add(K);
-                    dataGridView1.Rows.Add(K.GetVardas(), K.GetPavarde(),
-                        K.GetGimtadienis().ToShortDateString(), 
-                        K.GetVardString(),K.GetPastabos());
-                }
-            }
+            ivesti();
             tikrinti.Enabled = true;
             saugoti.Enabled = true;
-            irasyti.Enabled = true;
             RastiData.Enabled = true;
         }
 
@@ -333,12 +314,19 @@ namespace KlientuPrograma
             }
             KlientuSarasas = naujasKlientuSarasas;
             isvesti();
+            irasyti.Enabled = true;
         }
 
         private void irasyti_Click(object sender, EventArgs e)
         {
+            if (File.Exists(CFold))
+                File.Delete(CFold);
             if (File.Exists(CFd))
+            {
+                File.Copy(CFd, CFold);
                 File.Delete(CFd);
+            }
+                
             using (var fr = new StreamWriter(File.Open(CFd,
                                                  FileMode.Append), Encoding.UTF8))
             {
@@ -348,6 +336,8 @@ namespace KlientuPrograma
                     fr.WriteLine(klientas.ToStringCSV());
                 }
             }
+            undo.Enabled = true;
+            irasyti.Enabled = false;
         }
 
         private void RastiData_Click(object sender, EventArgs e)
@@ -448,6 +438,44 @@ namespace KlientuPrograma
                         K.GetGimtadienis().ToShortDateString(),
                         K.GetVardString(), K.GetPastabos());
             }
+        }
+
+        private void ivesti()
+        {
+            dataGridView1.Rows.Clear();
+            KlientuSarasas = new List<Klientai>();
+            using (StreamReader reader = new StreamReader(CFd, Encoding.UTF8))
+            {
+                string line = reader.ReadLine();
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    string vardas = parts[0];
+                    string pavarde = parts[1];
+                    DateTime gimtadienis = DateTime.Parse(parts[2]);
+                    string vardadieniai = parts[3];
+                    string pastabos = parts[4];
+                    Klientai K = new Klientai(vardas, pavarde, gimtadienis,
+                        vardadieniai, pastabos, VardadieniaiList);
+                    KlientuSarasas.Add(K);
+                    dataGridView1.Rows.Add(K.GetVardas(), K.GetPavarde(),
+                        K.GetGimtadienis().ToShortDateString(),
+                        K.GetVardString(), K.GetPastabos());
+                }
+            }
+        }
+        
+        private void undo_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(CFd))
+                File.Delete(CFd);
+            if (File.Exists(CFold))
+            {
+                File.Copy(CFold, CFd);
+                File.Delete(CFold);
+            }
+            ivesti();
+            undo.Enabled = false;
         }
     }
 }
