@@ -102,7 +102,7 @@ namespace KlientuPrograma
         }
         public bool Equals1(string vardasB, string pavardeB)
         {
-            if (vardas.Equals(vardasB) && pavarde.Equals(pavardeB))
+            if (vardas.ToLower().Equals(vardasB.ToLower()) && pavarde.ToLower().Equals(pavardeB.ToLower()))
                 return true;
             return false;
         }
