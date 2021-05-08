@@ -353,32 +353,16 @@ namespace KlientuPrograma
             }
         }
 
-        static int RaidesSkaicius(string e)
+        
+        static bool RaidesSkaicius(string e)
         {
-            int kiek = 0;
-            if (e.IndexOf('a') > 0) kiek++;            if (e.IndexOf('b') > 0) kiek++;            if (e.IndexOf('c') > 0) kiek++;
-            if (e.IndexOf('d') > 0) kiek++;            if (e.IndexOf('e') > 0) kiek++;            if (e.IndexOf('f') > 0) kiek++;
-            if (e.IndexOf('g') > 0) kiek++;            if (e.IndexOf('h') > 0) kiek++;            if (e.IndexOf('i') > 0) kiek++;
-            if (e.IndexOf('j') > 0) kiek++;            if (e.IndexOf('k') > 0) kiek++;            if (e.IndexOf('l') > 0) kiek++;
-            if (e.IndexOf('m') > 0) kiek++;            if (e.IndexOf('n') > 0) kiek++;            if (e.IndexOf('o') > 0) kiek++;
-            if (e.IndexOf('p') > 0) kiek++;            if (e.IndexOf('r') > 0) kiek++;            if (e.IndexOf('s') > 0) kiek++;            
-            if (e.IndexOf('t') > 0) kiek++;            if (e.IndexOf('u') > 0) kiek++;            if (e.IndexOf('v') > 0) kiek++;          
-            if (e.IndexOf('z') > 0) kiek++;            if (e.IndexOf('A') > 0) kiek++;            if (e.IndexOf('B') > 0) kiek++;           
-            if (e.IndexOf('C') > 0) kiek++;            if (e.IndexOf('D') > 0) kiek++;            if (e.IndexOf('E') > 0) kiek++;
-            if (e.IndexOf('F') > 0) kiek++;            if (e.IndexOf('G') > 0) kiek++;            if (e.IndexOf('H') > 0) kiek++;
-            if (e.IndexOf('I') > 0) kiek++;            if (e.IndexOf('J') > 0) kiek++;            if (e.IndexOf('K') > 0) kiek++;
-            if (e.IndexOf('L') > 0) kiek++;            if (e.IndexOf('M') > 0) kiek++;            if (e.IndexOf('N') > 0) kiek++;
-            if (e.IndexOf('O') > 0) kiek++;            if (e.IndexOf('P') > 0) kiek++;            if (e.IndexOf('R') > 0) kiek++;
-            if (e.IndexOf('S') > 0) kiek++;            if (e.IndexOf('T') > 0) kiek++;            if (e.IndexOf('U') > 0) kiek++;
-            if (e.IndexOf('V') > 0) kiek++;            if (e.IndexOf('Z') > 0) kiek++;            if (e.IndexOf(' ') > 0) kiek++;
-            if (e.IndexOf('%') > 0) kiek++;            if (e.IndexOf('&') > 0) kiek++;            if (e.IndexOf('-') > 0) kiek++;
-            if (e.IndexOf('$') > 0) kiek++;            if (e.IndexOf('#') > 0) kiek++;            if (e.IndexOf('+') > 0) kiek++;
-            if (e.IndexOf('!') > 0) kiek++;            if (e.IndexOf('"') > 0) kiek++;            if (e.IndexOf('*') > 0) kiek++;
-            if (e.IndexOf('.') > 0) kiek++;            if (e.IndexOf(',') > 0) kiek++;            if (e.IndexOf('/') > 0) kiek++;
-            if (e.IndexOf(';') > 0) kiek++;            if (e.IndexOf(':') > 0) kiek++;            if (e.IndexOf('=') > 0) kiek++;
-            if (e.IndexOf('?') > 0) kiek++;            if (e.IndexOf('(') > 0) kiek++;            if (e.IndexOf('@') > 0) kiek++;
-            if (e.IndexOf('~') > 0) kiek++;            if (e.IndexOf('`') > 0) kiek++;            if (e.IndexOf('^') > 0) kiek++;
-            return kiek;
+            foreach(char sk in e)
+            {
+                if (!Char.IsNumber(sk)) return false;
+                
+            }
+            return true;
+            
         }
         private void RastiData_Click(object sender, EventArgs e)
         {
@@ -391,7 +375,7 @@ namespace KlientuPrograma
                 datRezLangas.AppendText("\n  Užpildykite reikiamus langelius");
                 vardRezLang.AppendText("\n  Užpildykite reikiamus langelius");
             }
-            else if((RaidesSkaicius(text) > 0) || (RaidesSkaicius(text1) > 0))
+            else if((!RaidesSkaicius(text1)) || (!RaidesSkaicius(text) ))
             {
                 datRezLangas.AppendText("\n  Į kiekvieną laukelį įveskite tik arabiškus skaičius");
                 vardRezLang.AppendText("\n  Į kiekvieną laukelį įveskite tik arabiškus skaičius");
