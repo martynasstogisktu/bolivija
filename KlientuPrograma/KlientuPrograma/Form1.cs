@@ -14,7 +14,6 @@ namespace KlientuPrograma
         string CFold = "../../Klientai_old.csv";
         private List<Klientai> KlientuSarasas;
         private VardadieniaiList VardadieniaiList = new VardadieniaiList();
-        popup popup = new popup();
 
         public Langas()
         {
@@ -24,7 +23,6 @@ namespace KlientuPrograma
             irasyti.Enabled = false;
             siandienData.Text = DateTime.Now.Date.ToShortDateString();
             dataGridView1.ReadOnly = true;
-            popup popup = new popup();
             undo.Enabled = false;
         }
 
@@ -300,10 +298,7 @@ namespace KlientuPrograma
                 }
                 catch
                 {
-                    popup.Show();
-                    popup.Left = 750;
-                    popup.Top = 500;
-                    popup.text("Neteisingai įvesta data klientui " + vardas + " " + pavarde);
+                    MessageBox.Show("Neteisingai įvesta data klientui " + vardas + " " + pavarde, "Klaida");
                     return;
                 }
                 string vardadieniai = "";
