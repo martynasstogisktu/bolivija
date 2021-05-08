@@ -132,7 +132,7 @@ namespace KlientuPrograma
                         korekcijosRezLangas.Text = ("\n Toks klientas jau yra");
                 }
             }
-            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
+            catch { MessageBox.Show("Atliekant pridėjimą atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
         }
 
         private void salinti_Click(object sender, EventArgs e)
@@ -160,7 +160,7 @@ namespace KlientuPrograma
                     }
                 }
             }
-            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
+            catch { MessageBox.Show("Atliekant šalinimą atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
         }
        
 
@@ -260,7 +260,7 @@ namespace KlientuPrograma
                     korekcijosRezLangas.Text = ("Kliento duomenys sekmingai pakeisti\n");
                 }
             }
-            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
+            catch { MessageBox.Show("Atliekant keitimą atsirado klaida, patikrinkite ar teisingai įvedėte datą","Klaida"); }
         }
         // grazina surastos eilutes indeksa
         public int paieska(string vardas, string pavarde, DateTime gimtadienis)
