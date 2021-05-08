@@ -104,7 +104,7 @@ namespace KlientuPrograma
             this.pilka_spalva.Controls.Add(this.pavadinimas);
             this.pilka_spalva.Dock = System.Windows.Forms.DockStyle.Left;
             this.pilka_spalva.Location = new System.Drawing.Point(0, 0);
-            this.pilka_spalva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pilka_spalva.Margin = new System.Windows.Forms.Padding(2);
             this.pilka_spalva.Name = "pilka_spalva";
             this.pilka_spalva.Size = new System.Drawing.Size(204, 520);
             this.pilka_spalva.TabIndex = 0;
@@ -115,7 +115,7 @@ namespace KlientuPrograma
             this.klientai.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.klientai.ForeColor = System.Drawing.Color.White;
             this.klientai.Location = new System.Drawing.Point(20, 135);
-            this.klientai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.klientai.Margin = new System.Windows.Forms.Padding(2);
             this.klientai.Name = "klientai";
             this.klientai.Size = new System.Drawing.Size(163, 50);
             this.klientai.TabIndex = 5;
@@ -127,7 +127,7 @@ namespace KlientuPrograma
             // 
             this.paveikslas.BackgroundImage = global::KlientuPrograma.Properties.Resources.value_1;
             this.paveikslas.Location = new System.Drawing.Point(20, 398);
-            this.paveikslas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.paveikslas.Margin = new System.Windows.Forms.Padding(2);
             this.paveikslas.Name = "paveikslas";
             this.paveikslas.Size = new System.Drawing.Size(98, 102);
             this.paveikslas.TabIndex = 4;
@@ -138,7 +138,7 @@ namespace KlientuPrograma
             this.tikrinti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tikrinti.ForeColor = System.Drawing.Color.White;
             this.tikrinti.Location = new System.Drawing.Point(20, 220);
-            this.tikrinti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tikrinti.Margin = new System.Windows.Forms.Padding(2);
             this.tikrinti.Name = "tikrinti";
             this.tikrinti.Size = new System.Drawing.Size(163, 50);
             this.tikrinti.TabIndex = 2;
@@ -163,7 +163,7 @@ namespace KlientuPrograma
             this.Sviesi_linija.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
             this.Sviesi_linija.Dock = System.Windows.Forms.DockStyle.Left;
             this.Sviesi_linija.Location = new System.Drawing.Point(204, 0);
-            this.Sviesi_linija.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Sviesi_linija.Margin = new System.Windows.Forms.Padding(2);
             this.Sviesi_linija.Name = "Sviesi_linija";
             this.Sviesi_linija.Size = new System.Drawing.Size(4, 520);
             this.Sviesi_linija.TabIndex = 1;
@@ -176,7 +176,7 @@ namespace KlientuPrograma
             this.rezultatai.Controls.Add(this.tabPage1);
             this.rezultatai.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.rezultatai.Location = new System.Drawing.Point(228, 50);
-            this.rezultatai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rezultatai.Margin = new System.Windows.Forms.Padding(2);
             this.rezultatai.Name = "rezultatai";
             this.rezultatai.SelectedIndex = 0;
             this.rezultatai.Size = new System.Drawing.Size(734, 450);
@@ -193,9 +193,9 @@ namespace KlientuPrograma
             this.sarasas.Controls.Add(this.dataGridView1);
             this.sarasas.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.sarasas.Location = new System.Drawing.Point(4, 24);
-            this.sarasas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sarasas.Margin = new System.Windows.Forms.Padding(2);
             this.sarasas.Name = "sarasas";
-            this.sarasas.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sarasas.Padding = new System.Windows.Forms.Padding(2);
             this.sarasas.Size = new System.Drawing.Size(726, 422);
             this.sarasas.TabIndex = 0;
             this.sarasas.Text = "Sąrašas";
@@ -206,11 +206,12 @@ namespace KlientuPrograma
             this.undo.BackgroundImage = global::KlientuPrograma.Properties.Resources.Frame_1__5_1;
             this.undo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.undo.Location = new System.Drawing.Point(659, 381);
-            this.undo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.undo.Margin = new System.Windows.Forms.Padding(2);
             this.undo.Name = "undo";
             this.undo.Size = new System.Drawing.Size(30, 30);
             this.undo.TabIndex = 21;
             this.undo.UseVisualStyleBackColor = false;
+            this.undo.Click += new System.EventHandler(this.undo_Click_1);
             // 
             // irasyti
             // 
@@ -218,7 +219,7 @@ namespace KlientuPrograma
             this.irasyti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.irasyti.ForeColor = System.Drawing.Color.White;
             this.irasyti.Location = new System.Drawing.Point(447, 381);
-            this.irasyti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.irasyti.Margin = new System.Windows.Forms.Padding(2);
             this.irasyti.Name = "irasyti";
             this.irasyti.Size = new System.Drawing.Size(163, 30);
             this.irasyti.TabIndex = 11;
@@ -246,7 +247,7 @@ namespace KlientuPrograma
             this.saugoti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saugoti.ForeColor = System.Drawing.Color.White;
             this.saugoti.Location = new System.Drawing.Point(160, 381);
-            this.saugoti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saugoti.Margin = new System.Windows.Forms.Padding(2);
             this.saugoti.Name = "saugoti";
             this.saugoti.Size = new System.Drawing.Size(163, 30);
             this.saugoti.TabIndex = 8;
@@ -317,9 +318,9 @@ namespace KlientuPrograma
             this.svenciantys.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
             this.svenciantys.Controls.Add(this.svenciantysTextBox);
             this.svenciantys.Location = new System.Drawing.Point(4, 24);
-            this.svenciantys.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.svenciantys.Margin = new System.Windows.Forms.Padding(2);
             this.svenciantys.Name = "svenciantys";
-            this.svenciantys.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.svenciantys.Padding = new System.Windows.Forms.Padding(2);
             this.svenciantys.Size = new System.Drawing.Size(726, 422);
             this.svenciantys.TabIndex = 1;
             this.svenciantys.Text = "Švenčiantys klientai";
@@ -340,7 +341,7 @@ namespace KlientuPrograma
             this.klientas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.klientas.Location = new System.Drawing.Point(4, 24);
             this.klientas.Name = "klientas";
-            this.klientas.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.klientas.Padding = new System.Windows.Forms.Padding(3);
             this.klientas.Size = new System.Drawing.Size(726, 422);
             this.klientas.TabIndex = 2;
             this.klientas.Text = "Klientų korekcija";
@@ -490,7 +491,7 @@ namespace KlientuPrograma
             this.Keisti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Keisti.ForeColor = System.Drawing.Color.White;
             this.Keisti.Location = new System.Drawing.Point(564, 244);
-            this.Keisti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Keisti.Margin = new System.Windows.Forms.Padding(2);
             this.Keisti.Name = "Keisti";
             this.Keisti.Size = new System.Drawing.Size(157, 57);
             this.Keisti.TabIndex = 21;
@@ -526,7 +527,7 @@ namespace KlientuPrograma
             this.salinti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salinti.ForeColor = System.Drawing.Color.White;
             this.salinti.Location = new System.Drawing.Point(564, 87);
-            this.salinti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.salinti.Margin = new System.Windows.Forms.Padding(2);
             this.salinti.Name = "salinti";
             this.salinti.Size = new System.Drawing.Size(157, 37);
             this.salinti.TabIndex = 16;
@@ -565,7 +566,7 @@ namespace KlientuPrograma
             this.ieskoti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ieskoti.ForeColor = System.Drawing.Color.White;
             this.ieskoti.Location = new System.Drawing.Point(564, 149);
-            this.ieskoti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ieskoti.Margin = new System.Windows.Forms.Padding(2);
             this.ieskoti.Name = "ieskoti";
             this.ieskoti.Size = new System.Drawing.Size(157, 57);
             this.ieskoti.TabIndex = 13;
@@ -579,7 +580,7 @@ namespace KlientuPrograma
             this.prideti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prideti.ForeColor = System.Drawing.Color.White;
             this.prideti.Location = new System.Drawing.Point(400, 87);
-            this.prideti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.prideti.Margin = new System.Windows.Forms.Padding(2);
             this.prideti.Name = "prideti";
             this.prideti.Size = new System.Drawing.Size(157, 37);
             this.prideti.TabIndex = 15;
@@ -603,7 +604,7 @@ namespace KlientuPrograma
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(726, 422);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Švenčių paieška";
@@ -725,7 +726,7 @@ namespace KlientuPrograma
             this.RastiData.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RastiData.ForeColor = System.Drawing.Color.White;
             this.RastiData.Location = new System.Drawing.Point(289, 290);
-            this.RastiData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RastiData.Margin = new System.Windows.Forms.Padding(2);
             this.RastiData.Name = "RastiData";
             this.RastiData.Size = new System.Drawing.Size(153, 67);
             this.RastiData.TabIndex = 15;
@@ -762,7 +763,7 @@ namespace KlientuPrograma
             this.isjungti.BackgroundImage = global::KlientuPrograma.Properties.Resources.Vector;
             this.isjungti.Cursor = System.Windows.Forms.Cursors.Hand;
             this.isjungti.Location = new System.Drawing.Point(940, 11);
-            this.isjungti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.isjungti.Margin = new System.Windows.Forms.Padding(2);
             this.isjungti.Name = "isjungti";
             this.isjungti.Size = new System.Drawing.Size(34, 34);
             this.isjungti.TabIndex = 2;
@@ -782,7 +783,7 @@ namespace KlientuPrograma
             this.Controls.Add(this.pilka_spalva);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Langas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ryšiai su klientais";

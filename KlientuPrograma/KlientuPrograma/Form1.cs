@@ -625,8 +625,8 @@ namespace KlientuPrograma
                 }
             }
         }
-        
-        private void undo_Click(object sender, EventArgs e)
+
+        private void undo_Click_1(object sender, EventArgs e)
         {
             if (File.Exists(CFd))
                 File.Delete(CFd);
