@@ -282,6 +282,12 @@ namespace KlientuPrograma
 
         private void Keisti_Click(object sender, EventArgs e)
         {
+            if (vardas.Text == "" && pavarde.Text == "" && gimimo_data.Text == "")
+            {
+                korekcijosRezLangas.Text = ("Duomenys nepakeisti, nes visi " +
+                    "laukeliai tušti\n");
+                return;
+            }
             try
             {
                 string Vardas = Convert.ToString(vardas.Text);
@@ -296,8 +302,6 @@ namespace KlientuPrograma
                 korekcijosRezLangas.Clear();
                 if (inde != -1)
                 {
-                    string vard, pav, past;
-                    DateTime dat;
                     Klientai klientas = KlientuSarasas[inde];
                     if (Vardas != "")
                     {
