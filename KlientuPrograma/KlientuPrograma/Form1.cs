@@ -113,7 +113,7 @@ namespace KlientuPrograma
                         korekcijosRezLangas.Text = ("\n Toks klientas jau yra");
                 }
             }
-            catch { MessageBox.Show("Atliekant šalinimą atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
+            catch { MessageBox.Show("Atliekant pridėjimą atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
 }
 
         private void salinti_Click(object sender, EventArgs e)
