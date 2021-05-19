@@ -500,20 +500,19 @@ namespace KlientuPrograma
             try
             {
                 datRezLangas.Clear();
-                vardRezLang.Clear();
+
                 string text1 = menuo.Text;
                 string text = diena.Text;
-                if ((text == "") || (text1 == ""))
+                if ((text == "") && (text1 == ""))
                 {
                     datRezLangas.AppendText("\n  Užpildykite reikiamus langelius");
-                    vardRezLang.AppendText("\n  Užpildykite reikiamus langelius");
                 }
                 else if ((!RaidesSkaicius(text1)) || (!RaidesSkaicius(text)))
                 {
-                    datRezLangas.AppendText("\n  Į kiekvieną laukelį įveskite tik arabiškus skaičius");
-                    vardRezLang.AppendText("\n  Į kiekvieną laukelį įveskite tik arabiškus skaičius");
+                    datRezLangas.AppendText("\n  Į laukelius veskite tik arabiškus skaičius");
                 }
                 else
+                if (diena.Text != "" && menuo.Text != "")
                 {
                     int month = int.Parse(text1);
                     int day = int.Parse(text);
@@ -528,11 +527,55 @@ namespace KlientuPrograma
                     else
                     {
                         datRezLangas.AppendText("\n Tokia data neegzistuoja");
-                        vardRezLang.AppendText("\n Tokia data neegzistuoja");
+
                     }
                 }
+                else if (diena.Text != "")
+                {
+                    int day = int.Parse(text);
+                    if (day > 0 && day <= 31)
+                    {
+                        for (int i = 1; i < 13; i++)
+                        {
+                            if (!((day == 31 && (i == 4 || i == 6 || i == 9 || i == 11)) || (day > 29 && i == 2)))
+                            {
+                                RodytiGimtadienius(i, day);
+                                RodytiVardadienius(i, day);
+                            }
+                        }
+                    }
+                    else
+                        datRezLangas.AppendText("\n Tokia diena neegzistuoja");
+                }
+
+                else if (menuo.Text != "")
+                {
+
+                    int month = int.Parse(menuo.Text);
+                    if (month > 0 && month <= 12)
+                    {
+                        int days = 0;
+                        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+                            days = 31;
+                        if (month == 4 || month == 6 || month == 9 || month == 11)
+                            days = 30;
+                        if (month == 2)
+                            days = 29;
+                        if (days != 0)
+                        {
+                            for (int i = 1; i <= days; i++)
+                            {
+                                RodytiGimtadienius(month, i);
+                                RodytiVardadienius(month, i);
+                            }
+                        }
+                    }
+                    else
+                        datRezLangas.AppendText("\n Toks mėnuo neegzistuoja");
+
+                }
             }
-            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą","Klaida"); }
+            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
 
         }
 
