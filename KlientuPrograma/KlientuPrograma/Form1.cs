@@ -8,11 +8,11 @@ namespace KlientuPrograma
 {
     public partial class Langas : Form
     {
-        
+
         int inde = -1;
         string CFd = "../../Klientai.csv";
         string CFold = "../../Klientai_old.csv";
-        private List<Klientai> KlientuSarasas=new List<Klientai>();
+        private List<Klientai> KlientuSarasas = new List<Klientai>();
         private VardadieniaiList VardadieniaiList = new VardadieniaiList();
 
         public Langas()
@@ -33,7 +33,7 @@ namespace KlientuPrograma
 
         private void siandienData_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
 
@@ -47,7 +47,7 @@ namespace KlientuPrograma
 
         private void gimimo_data_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pastabos_TextChanged(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace KlientuPrograma
             RastiData.Enabled = true;
         }
 
-       
+
 
         private void tikrinti_Click(object sender, EventArgs e)
         {
@@ -80,12 +80,12 @@ namespace KlientuPrograma
             svenciantysTextBox.AppendText("\n  " + svenciaVardadieni());
         }
 
- 
+
 
         private void prideti_Click_1(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 string Vardas = Convert.ToString(vardas.Text);
                 string Pavarde = Convert.ToString(pavarde.Text);
                 DateTime data = DateTime.Parse(gimimo_data.Text);
@@ -95,7 +95,7 @@ namespace KlientuPrograma
                 {
                     korekcijosRezLangas.Text = ("\n Trūksta duomenų įvykdyti pridėjimą");
                 }
-                else 
+                else
                 {
                     prideti.Enabled = true;
                     int indeksas = paieska(Vardas, Pavarde, data);
@@ -114,7 +114,7 @@ namespace KlientuPrograma
                 }
             }
             catch { MessageBox.Show("Atliekant pridėjimą atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
-}
+        }
 
         private void salinti_Click(object sender, EventArgs e)
         {
@@ -138,10 +138,10 @@ namespace KlientuPrograma
                         isvesti();
                         korekcijosRezLangas.Text = ("\n Klientas pašalintas");
                     }
-                }            
+                }
             }
             catch { MessageBox.Show("Atliekant šalinimą atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
-}
+        }
 
         private void ieskoti_Click(object sender, EventArgs e)
         {
@@ -331,7 +331,7 @@ namespace KlientuPrograma
         {
             for (int i = 0; i < KlientuSarasas.Count; i++)
             {
-                if(KlientuSarasas[i].Equals(vardas.Trim(), pavarde.Trim(), gimtadienis))
+                if (KlientuSarasas[i].Equals(vardas.Trim(), pavarde.Trim(), gimtadienis))
                 {
                     return i;
                 }
@@ -368,7 +368,7 @@ namespace KlientuPrograma
             List<int> indeksai = new List<int>();
             for (int i = 0; i < KlientuSarasas.Count; i++)
             {
-                if (KlientuSarasas[i].GetVardas().ToLower().StartsWith(vardas.Trim().ToLower())||
+                if (KlientuSarasas[i].GetVardas().ToLower().StartsWith(vardas.Trim().ToLower()) ||
                     KlientuSarasas[i].GetVardas().ToLower().Equals(vardas.Trim().ToLower()))
                 {
                     indeksai.Add(i);
@@ -402,7 +402,7 @@ namespace KlientuPrograma
                 DateTime gimtadienis = klientas.GetGimtadienis();
                 if (gimtadienis.Month == DateTime.Today.Month &&
                     gimtadienis.Day == DateTime.Today.Day)
-                    svencia = svencia + klientas.GetVardas() + " " + 
+                    svencia = svencia + klientas.GetVardas() + " " +
                               klientas.GetPavarde() + "\n";
             }
             if (svencia == "")
@@ -411,7 +411,7 @@ namespace KlientuPrograma
                 return "Gimtadienius švenčiantys klientai:\n" + svencia;
         }
 
-       
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -463,7 +463,7 @@ namespace KlientuPrograma
                 File.Copy(CFd, CFold);
                 File.Delete(CFd);
             }
-                
+
             using (var fr = new StreamWriter(File.Open(CFd,
                                                  FileMode.Append), Encoding.UTF8))
             {
@@ -492,20 +492,19 @@ namespace KlientuPrograma
             try
             {
                 datRezLangas.Clear();
-                vardRezLang.Clear();
+
                 string text1 = menuo.Text;
                 string text = diena.Text;
-                if ((text == "") || (text1 == ""))
+                if ((text == "") && (text1 == ""))
                 {
                     datRezLangas.AppendText("\n  Užpildykite reikiamus langelius");
-                    vardRezLang.AppendText("\n  Užpildykite reikiamus langelius");
                 }
                 else if ((!RaidesSkaicius(text1)) || (!RaidesSkaicius(text)))
                 {
-                    datRezLangas.AppendText("\n  Į kiekvieną laukelį įveskite tik arabiškus skaičius");
-                    vardRezLang.AppendText("\n  Į kiekvieną laukelį įveskite tik arabiškus skaičius");
+                    datRezLangas.AppendText("\n  Į laukelius veskite tik arabiškus skaičius");
                 }
                 else
+                if (diena.Text != "" && menuo.Text != "")
                 {
                     int month = int.Parse(text1);
                     int day = int.Parse(text);
@@ -520,11 +519,55 @@ namespace KlientuPrograma
                     else
                     {
                         datRezLangas.AppendText("\n Tokia data neegzistuoja");
-                        vardRezLang.AppendText("\n Tokia data neegzistuoja");
+
                     }
                 }
+                else if (diena.Text != "")
+                {
+                    int day = int.Parse(text);
+                    if (day > 0 && day <= 31)
+                    {
+                        for (int i = 1; i < 13; i++)
+                        {
+                            if (!((day == 31 && (i == 4 || i == 6 || i == 9 || i == 11)) || (day > 29 && i == 2)))
+                            {
+                                RodytiGimtadienius(i, day);
+                                RodytiVardadienius(i, day);
+                            }
+                        }
+                    }
+                    else
+                        datRezLangas.AppendText("\n Tokia diena neegzistuoja");
+                }
+
+                else if (menuo.Text != "")
+                {
+
+                    int month = int.Parse(menuo.Text);
+                    if (month > 0 && month <= 12)
+                    {
+                        int days = 0;
+                        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+                            days = 31;
+                        if (month == 4 || month == 6 || month == 9 || month == 11)
+                            days = 30;
+                        if (month == 2)
+                            days = 29;
+                        if (days != 0)
+                        {
+                            for (int i = 1; i <= days; i++)
+                            {
+                                RodytiGimtadienius(month, i);
+                                RodytiVardadienius(month, i);
+                            }
+                        }
+                    }
+                    else
+                        datRezLangas.AppendText("\n Toks mėnuo neegzistuoja");
+
+                }
             }
-            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą","Klaida"); }
+            catch { MessageBox.Show("Atliekant paiešką atsirado klaida, patikrinkite ar teisingai įvedėte datą", "Klaida"); }
 
         }
 
@@ -569,7 +612,7 @@ namespace KlientuPrograma
                 datRezLangas.AppendText("Tokie klientai nerasti \n");
             }
             datRezLangas.AppendText("\n");
-        }       
+        }
 
 
         //grazina klientu, kurie svencia vardadienius, vardus
@@ -587,7 +630,7 @@ namespace KlientuPrograma
                         svencia = svencia + klientas.GetVardas() + " " +
                                   klientas.GetPavarde() + "\n";
                 }
-                
+
             }
             if (svencia == "")
                 return "Niekas vardadienio šiandien nešvenčia\n";
