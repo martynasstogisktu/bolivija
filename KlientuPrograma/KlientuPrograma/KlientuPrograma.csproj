@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Frame 1 %285%291.jpg" />
+    <None Include="Resources\Undo.jpg" />
     <Content Include="vardadieniuDatos.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

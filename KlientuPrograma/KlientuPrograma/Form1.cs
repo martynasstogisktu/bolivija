@@ -431,8 +431,14 @@ namespace KlientuPrograma
             List<Klientai> naujasKlientuSarasas = new List<Klientai>();
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
-                string vardas = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                string pavarde = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                string vardas = "";
+                if (dataGridView1.Rows[i].Cells[0].Value != null)
+                    vardas = dataGridView1.Rows[i].Cells[0].Value.ToString();
+
+                string pavarde = "";
+                if (dataGridView1.Rows[i].Cells[1].Value != null)
+                    pavarde = dataGridView1.Rows[i].Cells[1].Value.ToString();
+
                 DateTime gimtadienis;
                 try
                 {
@@ -444,7 +450,9 @@ namespace KlientuPrograma
                     return;
                 }
                 string vardadieniai = "";
-                string pastabos = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                string pastabos = "";
+                if (dataGridView1.Rows[i].Cells[4].Value != null)
+                    pastabos = dataGridView1.Rows[i].Cells[4].Value.ToString();
                 Klientai K = new Klientai(vardas, pavarde, gimtadienis,
                     vardadieniai, pastabos, VardadieniaiList);
                 naujasKlientuSarasas.Add(K);

@@ -203,7 +203,7 @@ namespace KlientuPrograma
             // undo
             // 
             this.undo.BackColor = System.Drawing.Color.Transparent;
-            this.undo.BackgroundImage = global::KlientuPrograma.Properties.Resources.Frame_1__5_1;
+            this.undo.BackgroundImage = global::KlientuPrograma.Properties.Resources.Undo;
             this.undo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.undo.Location = new System.Drawing.Point(659, 381);
             this.undo.Margin = new System.Windows.Forms.Padding(2);
