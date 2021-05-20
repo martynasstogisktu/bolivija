@@ -24,6 +24,10 @@ namespace KlientuPrograma
             siandienData.Text = DateTime.Now.Date.ToShortDateString();
             dataGridView1.ReadOnly = true;
             undo.Enabled = false;
+            prideti.Enabled = false;
+            salinti.Enabled = false;
+            ieskoti.Enabled = false;
+            Keisti.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -69,6 +73,9 @@ namespace KlientuPrograma
             tikrinti.Enabled = true;
             saugoti.Enabled = true;
             RastiData.Enabled = true;
+            prideti.Enabled = true;
+            salinti.Enabled = true;
+            ieskoti.Enabled = true;
         }
 
        
